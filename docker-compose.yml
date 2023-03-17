@@ -6,10 +6,10 @@ services:
     container_name: ros2_foxy_cuda
     build: ./
     volumes:
-      - ./ws:/home/ws
+      - ./packages:/root/ws/src/
       - /tmp/.X111-unix:/tmp/.X11-unix
       - /dev/:/dev/ # Little bit dangerous, but it works
-    working_dir: /home/ws
+    working_dir: /root/ws/src/
     environment:
       - DISPLAY=${DISPLAY}
     network_mode: "host"  # Must with this line to enable display
