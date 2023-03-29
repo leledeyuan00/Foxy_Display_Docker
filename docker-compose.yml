@@ -3,7 +3,8 @@
 version: "1.0"
 services:
   ros2_cuda:
-    container_name: ros2_foxy_cuda
+    container_name: ros2_humble_cuda
+    image: ros2_cuda_docker
     build: ./
     volumes:
       - ./packages:/root/ws/src/

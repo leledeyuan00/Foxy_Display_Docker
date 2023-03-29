@@ -1,4 +1,4 @@
-FROM osrf/ros:foxy-desktop as base
+FROM osrf/ros:humble-desktop-full as base
 
 RUN apt-get update && apt-get install -y gnupg2 curl wget
 RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
@@ -46,5 +46,5 @@ ENV NVIDIA_PRODUCT_NAME="CUDA"
 # ADD ROS2 Environment Config
 COPY ROS2_config /root/ROS2_config
 RUN touch /root/.bashrc && \
-    echo "source /opt/ros/foxy/setup.bash" >> /root/.bashrc && \
+    echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc && \
     echo "source /root/ROS2_config/ROS2_environment.bash" >> /root/.bashrc
