@@ -3,16 +3,18 @@
 version: "1.0"
 services:
   ros2_cuda:
-    container_name: ros2_foxy_cuda
+    container_name: ros2_humble_cuda
+    image: ros2_cuda_docker
     build: ./
     volumes:
       - ./packages:/root/ws/src/
-      - /tmp/.X111-unix:/tmp/.X11-unix
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - /dev/:/dev/ # Little bit dangerous, but it works
     working_dir: /root/ws/src/
     environment:
       - DISPLAY=${DISPLAY}
     network_mode: "host"  # Must with this line to enable display
+    ipc: host
     stdin_open: true
     deploy:
       resources:
