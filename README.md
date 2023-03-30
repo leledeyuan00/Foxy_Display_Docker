@@ -16,6 +16,19 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
 
 `sudo apt-get install nvidia-container-toolkit`
 
+`sudo gedit /etc/docker/daemon.json`
+
+```
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+```
+
 `sudo systemctl restart docker`
 
 `mkdir packages`
