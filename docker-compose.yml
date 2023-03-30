@@ -8,12 +8,13 @@ services:
     build: ./
     volumes:
       - ./packages:/root/ws/src/
-      - /tmp/.X111-unix:/tmp/.X11-unix
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - /dev/:/dev/ # Little bit dangerous, but it works
     working_dir: /root/ws/src/
     environment:
       - DISPLAY=${DISPLAY}
     network_mode: "host"  # Must with this line to enable display
+    ipc: host
     stdin_open: true
     deploy:
       resources:
