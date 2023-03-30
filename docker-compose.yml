@@ -3,7 +3,7 @@
 version: "1.0"
 services:
   ros2_cuda:
-    container_name: ros2_humble_cuda
+    container_name: ros2_foxy_cuda
     image: ros2_cuda_docker
     build: ./
     volumes:
@@ -13,13 +13,15 @@ services:
     working_dir: /root/ws/src/
     environment:
       - DISPLAY=${DISPLAY}
+      - NVIDIA_VISIBLE_DEVICES=all
     network_mode: "host"  # Must with this line to enable display
     ipc: host
+    privileged: true
     stdin_open: true
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
-              count: 1
+              count: all
               capabilities: [gpu]

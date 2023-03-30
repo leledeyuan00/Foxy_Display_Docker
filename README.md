@@ -16,6 +16,19 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
 
 `sudo apt-get install nvidia-container-toolkit`
 
+`sudo gedit /etc/docker/daemon.json`
+
+```
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+```
+
 `sudo systemctl restart docker`
 
 `mkdir packages`
@@ -26,5 +39,5 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
 
 ## Exec 
 
-`docker container exec -it ros2_foxy_cuda /bin/bash`
+`docker container exec -it ros2_humble_cuda /bin/bash`
 
