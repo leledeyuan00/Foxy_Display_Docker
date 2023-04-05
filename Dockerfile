@@ -8,7 +8,6 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/p
 RUN apt-get update && apt-get install -y gz-garden ros-foxy-moveit ros-$ROS_DISTRO-rmw-cyclonedds-cpp
 
 RUN apt-get install -y ubuntu-drivers-common
-RUN ubuntu-drivers autoinstall
 
 # ADD ROS2 Environment Config
 COPY ROS2_config /root/ROS2_config
