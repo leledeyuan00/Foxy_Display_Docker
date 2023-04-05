@@ -15,5 +15,6 @@ Every reboot, you need enable host for docker to use docker display.
 
 ## When first into the docker
 `ubuntu-drivers autoinstall`
+
 `apt-get install -y $(nvidia-detector)`
 
