@@ -13,6 +13,6 @@ Every reboot, you need enable host for docker to use docker display.
 
 `docker container exec -it ros2_foxy_cuda /bin/bash`
 
-## When firt into the docker
+## When first into the docker
 `apt-get install -y $(nvidia-detector)`
 
