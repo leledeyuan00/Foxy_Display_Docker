@@ -1,6 +1,5 @@
 # Development Dockerfile for ROS2 with Nvidia GPU support
 # Maintainer: Dayuan
-version: "1.0"
 services:
   ros2_cuda:
     container_name: ros2_humble_cuda
@@ -13,7 +12,12 @@ services:
     working_dir: /root/ws/src/
     environment:
       - DISPLAY=${DISPLAY}
-      - NVIDIA_VISIBLE_DEVICES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu] # Required field to specify GPU access
+              count: all # Request all available GPUs. Can also be an integer (e.g., 1) or a specific ID
     network_mode: "host"  # Must with this line to enable display
     ipc: host
     privileged: true
