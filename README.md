@@ -20,3 +20,6 @@ sudo systemctl restart docker
 
 `docker container exec -it ros2_humble_cuda /bin/bash`
 
+## Recommanded using 'devcontainer' puglin in vscode
+
+Install 'Dev Containers' plugin in vscode.

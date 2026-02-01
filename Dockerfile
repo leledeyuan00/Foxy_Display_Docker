@@ -1,4 +1,4 @@
-FROM osrf/ros:humble-desktop-full as base
+FROM osrf/ros:humble-desktop-full
 
 RUN apt-get update && apt-get install -y lsb-release wget gnupg vim
 

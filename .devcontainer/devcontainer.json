@@ -1,0 +1,20 @@
+{
+  "name": "Cartesian Motion Base Dev",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "ros2_cuda",
+  "workspaceFolder": "/root/ws/src/",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",           
+        "twxs.cmake",                   
+        "eamodio.gitlens",
+        "ranch-hand-robotics.rde-pack",
+        "jaehyunshim.vscode-ros2"
+      ]
+    }
+  },
+
+  "remoteUser": "root"
+}

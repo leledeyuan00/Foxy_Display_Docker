@@ -8,17 +8,27 @@ services:
     volumes:
       - ./packages:/root/ws/src/
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - /dev/:/dev/ # Little bit dangerous, but it works
-    working_dir: /root/ws/src/
+
     environment:
       - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+
+    network_mode: "host"  # Must with this line to enable display
+    ipc: host
+
     deploy:
       resources:
         reservations:
           devices:
-            - capabilities: [gpu] # Required field to specify GPU access
+            - driver: nvidia
               count: all # Request all available GPUs. Can also be an integer (e.g., 1) or a specific ID
-    network_mode: "host"  # Must with this line to enable display
-    ipc: host
+              capabilities: [gpu, graphics, utility, display] # Required field to specify GPU access
+
+    devices:
+      - /dev/dri:/dev/dri
+    
     privileged: true
     stdin_open: true
+    tty: true
